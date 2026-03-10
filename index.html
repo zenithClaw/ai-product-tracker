@@ -3,213 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 AI Product Tracker - Daily Top Picks</title>
+  <title>🔥 AI Picks - Daily Curated AI Products</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .gradient-bg { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-    .card-glow:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.3); }
-    .trend-up { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .gradient-bg { background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); }
+    .glow:hover { box-shadow: 0 0 40px rgba(139, 92, 246, 0.2); }
   </style>
 </head>
 <body class="gradient-bg min-h-screen text-white">
   <!-- Header -->
-  <header class="border-b border-gray-800">
-    <div class="max-w-6xl mx-auto px-4 py-6">
+  <header class="border-b border-gray-800/50">
+    <div class="max-w-4xl mx-auto px-4 py-8">
       <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-2xl">🔥</div>
-          <div>
-            <h1 class="text-2xl font-bold">AI Product Tracker</h1>
-            <p class="text-gray-400 text-sm">Daily curated AI products from X & GitHub</p>
-          </div>
+        <div>
+          <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            🔥 AI Picks
+          </h1>
+          <p class="text-gray-400 mt-1">Daily curated AI products. 3-5 only. No fluff.</p>
         </div>
         <div class="text-right">
-          <p class="text-sm text-gray-400">Last updated</p>
-          <p class="font-mono text-purple-400" id="last-updated">2026-03-10 15:00 UTC</p>
+          <p class="text-sm text-gray-500">Issue #1</p>
+          <p class="font-mono text-purple-400">2026-03-10</p>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Stats -->
-  <div class="border-b border-gray-800 bg-black/20">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <div class="flex gap-8 text-sm">
-        <div><span class="text-gray-400">Total Products:</span> <span class="font-bold text-white" id="total-count">8</span></div>
-        <div><span class="text-gray-400">From X:</span> <span class="font-bold text-pink-400">5</span></div>
-        <div><span class="text-gray-400">From GitHub:</span> <span class="font-bold text-purple-400">3</span></div>
-        <div><span class="text-gray-400">Verified:</span> <span class="font-bold text-green-400">2</span></div>
+  <!-- Filter -->
+  <div class="border-b border-gray-800/50 bg-black/20">
+    <div class="max-w-4xl mx-auto px-4 py-3">
+      <div class="flex gap-3 text-sm">
+        <span class="text-gray-500">Filter:</span>
+        <button class="px-3 py-1 rounded-full bg-purple-600 text-white">All</button>
+        <button class="px-3 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700">🔓 Open Source</button>
+        <button class="px-3 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700">💰 SaaS</button>
+        <button class="px-3 py-1 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700">🛠️ Tools</button>
       </div>
     </div>
   </div>
 
-  <!-- Products Grid -->
-  <main class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex items-center gap-4 mb-6">
-      <h2 class="text-xl font-bold">Today's Top Picks</h2>
-      <span class="trend-up text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">🔥 Trending Now</span>
-    </div>
+  <!-- Picks -->
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-6">
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="products-grid">
-      
-      <!-- Product Card 1 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-purple-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">🤖</div>
-            <div>
-              <h3 class="font-bold">Claude Code</h3>
-              <p class="text-xs text-gray-400">Anthropic</p>
-            </div>
+    <!-- Pick 1 -->
+    <article class="glow bg-gray-800/30 border border-gray-700/50 rounded-2xl p-6 transition-all hover:border-purple-500/50">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+          🤖
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-2">
+            <h2 class="text-xl font-bold">Claude Code</h2>
+            <span class="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-xs">🔥 Will Trend</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-xs">🔓 Open Source</span>
           </div>
-          <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">🎯 SaaS</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-4">AI coding agent that writes, tests, and reviews code autonomously. 18-year-old built SaaS with it.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 2.4K likes</span>
-          <span>⭐ 12K stars</span>
-          <span class="text-green-400">✅ Verified</span>
-        </div>
-        <a href="https://github.com/anthropics/claude-code" target="_blank" class="block text-center bg-purple-600 hover:bg-purple-500 py-2 rounded-lg text-sm transition-all">
-          View on GitHub →
-        </a>
-      </div>
-
-      <!-- Product Card 2 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-pink-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">🎨</div>
-            <div>
-              <h3 class="font-bold">Midjourney V7</h3>
-              <p class="text-xs text-gray-400">Midjourney</p>
-            </div>
+          <p class="text-purple-300 text-sm mb-3">💡 <strong>Why值得关注:</strong> 18岁用Claude Code做SaaS，0行手写代码，1200用户。AI编程民主化来了。</p>
+          <div class="flex gap-4 text-xs text-gray-400 mb-4">
+            <span>🔥 2.4K likes (X)</span>
+            <span>⭐ 12K stars</span>
+            <span>👨‍💻 开发者</span>
           </div>
-          <span class="text-xs bg-pink-500/20 text-pink-400 px-2 py-1 rounded">🎨 Creative</span>
+          <a href="https://github.com/anthropics/claude-code" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm">
+            View → 
+          </a>
         </div>
-        <p class="text-gray-300 text-sm mb-4">Latest AI image generation with improved coherence and prompt following.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 5.1K likes</span>
-          <span>⭐ 85K members</span>
-          <span class="text-green-400">✅ Verified</span>
-        </div>
-        <a href="https://midjourney.com" target="_blank" class="block text-center bg-pink-600 hover:bg-pink-500 py-2 rounded-lg text-sm transition-all">
-          Visit Website →
-        </a>
       </div>
+    </article>
 
-      <!-- Product Card 3 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-cyan-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">🔍</div>
-            <div>
-              <h3 class="font-bold">Perplexity</h3>
-              <p class="text-xs text-gray-400">AI Search</p>
-            </div>
+    <!-- Pick 2 -->
+    <article class="glow bg-gray-800/30 border border-gray-700/50 rounded-2xl p-6 transition-all hover:border-pink-500/50">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+          ⚡
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-2">
+            <h2 class="text-xl font-bold">Bolt.new</h2>
+            <span class="px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-400 text-xs">💡 Innovative</span>
+            <span class="px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 text-xs">🔒 SaaS</span>
           </div>
-          <span class="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded">🔧 Tool</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-4">AI-powered search engine with citations. Challenging Google directly.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 3.2K likes</span>
-          <span>⭐ 500K users</span>
-          <span class="text-green-400">✅ Verified</span>
-        </div>
-        <a href="https://perplexity.ai" target="_blank" class="block text-center bg-cyan-600 hover:bg-cyan-500 py-2 rounded-lg text-sm transition-all">
-          Visit Website →
-        </a>
-      </div>
-
-      <!-- Product Card 4 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-orange-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">⚡</div>
-            <div>
-              <h3 class="font-bold">Bolt.new</h3>
-              <p class="text-xs text-gray-400">StackBlitz</p>
-            </div>
+          <p class="text-purple-300 text-sm mb-3">💡 <strong>Why值得关注:</strong> 浏览器里直接写代码、部署Web应用。无需本地环境，所见即所得。</p>
+          <div class="flex gap-4 text-xs text-gray-400 mb-4">
+            <span>🔥 1.8K likes (X)</span>
+            <span>🆕 New</span>
+            <span>👨‍💻 开发者</span>
           </div>
-          <span class="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded">🎯 SaaS</span>
+          <a href="https://bolt.new" target="_blank" class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 text-sm">
+            View → 
+          </a>
         </div>
-        <p class="text-gray-300 text-sm mb-4">Prompt, run, edit, deploy full-stack web apps in browser. No setup needed.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 1.8K likes</span>
-          <span>⭐ New</span>
-          <span class="text-yellow-400">⚠️ Unverified</span>
-        </div>
-        <a href="https://bolt.new" target="_blank" class="block text-center bg-orange-600 hover:bg-orange-500 py-2 rounded-lg text-sm transition-all">
-          Visit Website →
-        </a>
       </div>
+    </article>
 
-      <!-- Product Card 5 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-green-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">📝</div>
-            <div>
-              <h3 class="font-bold">v0 by Vercel</h3>
-              <p class="text-xs text-gray-400">Vercel</p>
-            </div>
+    <!-- Pick 3 -->
+    <article class="glow bg-gray-800/30 border border-gray-700/50 rounded-2xl p-6 transition-all hover:border-cyan-500/50">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+          🔍
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-2">
+            <h2 class="text-xl font-bold">Perplexity</h2>
+            <span class="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-xs">🔥 Will Trend</span>
+            <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 text-xs">🔒 SaaS</span>
           </div>
-          <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">🔧 Tool</span>
-        </div>
-        <p class="text-gray-300 text-sm mb-4">Generate UI with AI. Type/shape your idea → get React code.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 2.1K likes</span>
-          <span>⭐ 45K/month</span>
-          <span class="text-green-400">✅ Verified</span>
-        </div>
-        <a href="https://v0.dev" target="_blank" class="block text-center bg-green-600 hover:bg-green-500 py-2 rounded-lg text-sm transition-all">
-          Visit Website →
-        </a>
-      </div>
-
-      <!-- Product Card 6 -->
-      <div class="card-glow bg-gray-800/50 border border-gray-700 rounded-2xl p-6 transition-all hover:border-violet-500">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">🎬</div>
-            <div>
-              <h3 class="font-bold">Runway</h3>
-              <p class="text-xs text-gray-400">GenAI</p>
-            </div>
+          <p class="text-purple-300 text-sm mb-3">💡 <strong>Why值得关注:</strong> 直接挑战Google的AI搜索。答案+引用，商业模式清晰。</p>
+          <div class="flex gap-4 text-xs text-gray-400 mb-4">
+            <span>🔥 3.2K likes (X)</span>
+            <span>💰 Series A</span>
+            <span>👤 普通用户</span>
           </div>
-          <span class="text-xs bg-violet-500/20 text-violet-400 px-2 py-1 rounded">🎨 Creative</span>
+          <a href="https://perplexity.ai" target="_blank" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm">
+            View → 
+          </a>
         </div>
-        <p class="text-gray-300 text-sm mb-4">AI video generation and editing platform. Text to video, lip sync, and more.</p>
-        <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-          <span>🔥 4.5K likes</span>
-          <span>⭐ Series C</span>
-          <span class="text-green-400">✅ Verified</span>
-        </div>
-        <a href="https://runwayml.com" target="_blank" class="block text-center bg-violet-600 hover:bg-violet-500 py-2 rounded-lg text-sm transition-all">
-          Visit Website →
-        </a>
       </div>
+    </article>
 
-    </div>
   </main>
 
-  <!-- Submit Section -->
-  <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 py-12">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold mb-4">🙋‍♂️ Submit a Product</h2>
-      <p class="text-gray-400 mb-6">Found something cool? Let us know!</p>
-      <a href="https://x.com/dm/zenithClaw" class="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-medium hover:bg-gray-100 transition-all">
-        DM on X
-      </a>
-    </div>
-  </div>
-
   <!-- Footer -->
-  <footer class="max-w-6xl mx-auto px-4 py-8 text-center text-gray-500 text-sm">
-    <p>🔥 AI Product Tracker | Updated daily with hot AI products</p>
-    <p class="mt-2">Data from X, GitHub, Product Hunt</p>
+  <footer class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-500 text-sm">
+    <p>🔥 AI Picks | 3-5精选 | 每日更新</p>
+    <p class="mt-2">Built by @zenithClaw</p>
   </footer>
-
 </body>
 </html>
