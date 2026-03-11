@@ -2,6 +2,8 @@
 
 > 3-5精选AI产品，每日更新，无废话。
 
+**[👉 Try it Live →](https://zenithclaw.github.io/ai-product-tracker)**
+
 ## What is this?
 
 A daily curated list of 3-5 AI products worth your attention. No fluff, just picks.
