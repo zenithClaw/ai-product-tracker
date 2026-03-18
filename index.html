@@ -3,63 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Insider - 追踪 AI Agent 核心更新</title>
+    <title>OpenClaw Insider - 追踪 AI Agent 最前沿</title>
     <style>
         :root {
-            --primary: #6f42c1;
-            --bg: #0d1117;
-            --card-bg: #161b22;
-            --text: #c9d1d9;
-            --border: #30363d;
-            --accent: #58a6ff;
+            --primary: #2563eb;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 40px 20px; background-color: var(--bg); color: var(--text); }
-        h1 { color: #fff; border-bottom: 2px solid var(--primary); padding-bottom: 10px; font-size: 2.5em; }
-        h2 { color: var(--accent); margin-top: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
-        .intro { font-size: 1.2em; color: #8b949e; margin-bottom: 40px; }
-        .gazette-list { display: grid; gap: 20px; }
-        .gazette-card { 
+        body { 
+            font-family: -apple-system, system-ui, sans-serif; 
+            line-height: 1.6; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            background-color: var(--bg); 
+            color: var(--text);
+        }
+        h1 { font-size: 2.5em; text-align: center; margin-bottom: 10px; color: var(--accent); }
+        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
+        .card { 
             background: var(--card-bg); 
-            border: 1px solid var(--border); 
             border-radius: 12px; 
-            padding: 25px; 
-            transition: transform 0.2s, border-color 0.2s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            padding: 24px; 
+            margin-bottom: 24px; 
+            border: 1px solid #334155;
+            transition: transform 0.2s;
         }
-        .gazette-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--accent);
-            background: #1c2128;
+        .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+        .tag { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 999px; 
+            font-size: 0.75em; 
+            font-weight: 600;
+            background: #1e40af; 
+            color: #bfdbfe; 
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
-        .date { color: #8b949e; font-size: 0.9em; margin-bottom: 10px; display: block; }
-        .title { font-size: 1.4em; font-weight: bold; color: #fff; display: block; margin-bottom: 10px; }
-        .summary { color: #8b949e; }
-        .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; background: rgba(111, 66, 193, 0.2); color: #d2a8ff; margin-right: 10px; border: 1px solid var(--primary); }
-        footer { margin-top: 60px; text-align: center; color: #8b949e; font-size: 0.9em; border-top: 1px solid var(--border); padding-top: 20px; }
-        .highlight { color: #f0883e; font-weight: bold; }
+        .version { font-family: monospace; color: var(--accent); }
+        h2 { margin-top: 0; font-size: 1.5em; }
+        p { color: #cbd5e1; }
+        .actions { 
+            margin-top: 16px; 
+            padding-top: 16px; 
+            border-top: 1px solid #334155;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+        .footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.8em; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { text-align: center; margin-bottom: 30px; }
+        .nav a { margin: 0 15px; font-weight: 500; }
     </style>
 </head>
 <body>
-    <h1>🚀 OpenClaw Insider</h1>
-    <p class="intro">深度追踪 OpenClaw 生态核心更新，将硬核 PR 转化为 <span class="highlight">Actionable Intelligence</span>。</p>
+    <h1>🛡️ OpenClaw Insider</h1>
+    <p class="subtitle">让想跟进 OpenClaw 更新的人，比开发者更懂 Agent 进化。</p>
 
-    <div class="gazette-list">
-        <a href="https://github.com/zenithClaw/ai-product-tracker/blob/main/gazettes/INSIDER_01.md" class="gazette-card">
-            <span class="date">2026-03-18</span>
-            <span class="title">🛡️ 第 01 期：多级代理效率革命与沙盒安全加固</span>
-            <div style="margin-bottom: 15px;">
-                <span class="tag">Architecture</span>
-                <span class="tag">Security</span>
-                <span class="tag">Efficiency</span>
-            </div>
-            <p class="summary">本期核心：sessions_yield 正式上线显著降低 Token 损耗；拦截 7 个高危环境变量防止沙盒逃逸；MS Teams 稳定性大幅提升。</p>
-        </a>
+    <div class="nav">
+        <a href="#">最新情报</a>
+        <a href="https://github.com/zenithClaw/ai-product-tracker/tree/main/gazettes">往期存档 (Markdown)</a>
+        <a href="https://github.com/openclaw/openclaw">官方仓库</a>
     </div>
 
-    <footer>
-        <p>Generated by <strong>小 z 🐛 (Antigravity)</strong> | <a href="https://github.com/zenithClaw/ai-product-tracker" style="color: var(--accent);">View Source on GitHub</a></p>
-    </footer>
+    <div class="card">
+        <span class="tag">Architecture</span>
+        <h2>多级代理效率革命 <span class="version">[2026.03.18]</span></h2>
+        <p><strong>价值：</strong> 引入 <code>sessions_yield</code> 逻辑。主代理在调用子代理后可“挂起”等待，不再通过轮询浪费 Tokens。</p>
+        <p>以前子代理干活，主代理得一直在后台轮询，费钱又容易死锁。现在效率提升 30%。</p>
+        <div class="actions">
+            ⚡ <strong>Action:</strong> 检查 Skill 中的 sessions_spawn 逻辑，改用异步事件触发。
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="tag">Security</span>
+        <h2>阻断隐性沙盒逃逸 <span class="version">[2026.03.17]</span></h2>
+        <p><strong>价值：</strong> 拦截了包括 <code>GLIBC_TUNABLES</code>、<code>MAVEN_OPTS</code> 等在内的 7 个高危环境变量注入向量。</p>
+        <p>防御黑客（或恶意代码）通过隐秘系统变量绕过沙盒攻击宿主机。</p>
+        <div class="actions">
+            🔒 <strong>Action:</strong> 确保升级到最新内核，保障本地执行环境安全。
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="tag">Stability</span>
+        <h2>MSTeams 重启地狱终结 <span class="version">[2026.03.18]</span></h2>
+        <p><strong>价值：</strong> 引入单例守护（Singleton Guard），解决了 <code>EADDRINUSE</code> 导致的无限崩溃重启循环。</p>
+        <div class="actions">
+            🛠️ <strong>Action:</strong> 使用 MS Teams 频道的用户请务必同步 Master 分支。
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="tag">Extension</span>
+        <h2>飞书精准回复机制 <span class="version">[2026.03.18]</span></h2>
+        <p><strong>价值：</strong> 修正了多消息并发时的乱序回复问题，回复强制溯源当前会话 ID。</p>
+        <div class="actions">
+            💬 <strong>Action:</strong> 飞书 Bot 用户可获得更稳定的对话体验。
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Generated with 🐛 by Mycelium Swarm | Powered by Antigravity</p>
+        <p>© 2026 ZenithClaw Labs</p>
+    </div>
 </body>
 </html>
