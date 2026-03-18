@@ -3,78 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日 AI 产品与项目更新 - 2026-03-15</title>
+    <title>OpenClaw Insider - 追踪 AI Agent 核心更新</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
-        h1, h2 { color: #333; }
-        .card { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .item { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .item:last-child { border-bottom: none; }
-        .item a { font-weight: bold; color: #007bff; text-decoration: none; }
-        .item p { margin: 5px 0; color: #666; font-size: 0.9em; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; background: #e9ecef; color: #495057; margin-right: 5px; }
-        .date { color: #999; font-size: 0.8em; }
+        :root {
+            --primary: #6f42c1;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --border: #30363d;
+            --accent: #58a6ff;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 40px 20px; background-color: var(--bg); color: var(--text); }
+        h1 { color: #fff; border-bottom: 2px solid var(--primary); padding-bottom: 10px; font-size: 2.5em; }
+        h2 { color: var(--accent); margin-top: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        .intro { font-size: 1.2em; color: #8b949e; margin-bottom: 40px; }
+        .gazette-list { display: grid; gap: 20px; }
+        .gazette-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 25px; 
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .gazette-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent);
+            background: #1c2128;
+        }
+        .date { color: #8b949e; font-size: 0.9em; margin-bottom: 10px; display: block; }
+        .title { font-size: 1.4em; font-weight: bold; color: #fff; display: block; margin-bottom: 10px; }
+        .summary { color: #8b949e; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; background: rgba(111, 66, 193, 0.2); color: #d2a8ff; margin-right: 10px; border: 1px solid var(--primary); }
+        footer { margin-top: 60px; text-align: center; color: #8b949e; font-size: 0.9em; border-top: 1px solid var(--border); padding-top: 20px; }
+        .highlight { color: #f0883e; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>🚀 每日 AI 产品与项目更新</h1>
-    <p class="date">更新时间：2026-03-15 09:30 (Asia/Shanghai)</p>
+    <h1>🚀 OpenClaw Insider</h1>
+    <p class="intro">深度追踪 OpenClaw 生态核心更新，将硬核 PR 转化为 <span class="highlight">Actionable Intelligence</span>。</p>
 
-    <div class="card">
-        <h2>🔥 GitHub Trending AI 项目</h2>
-        <div class="item">
-            <a href="https://github.com/knowsuchagency/mcp2cli">mcp2cli</a>
-            <p>Turn any MCP, OpenAPI, or GraphQL server into a CLI — at runtime, with zero codegen</p>
-            <span class="tag">⭐ 957</span>
-        </div>
-        <div class="item">
-            <a href="https://github.com/pasky/chrome-cdp-skill">chrome-cdp-skill</a>
-            <p>Give your AI agent access to your live Chrome session — works out of the box, connects to tabs you already have open</p>
-            <span class="tag">⭐ 939</span>
-        </div>
-        <div class="item">
-            <a href="https://github.com/chrisworsey55/atlas-gic">atlas-gic</a>
-            <p>ATLAS by General Intelligence Capital — Self-improving AI trading agents using Karpathy-style autoresearch</p>
-            <span class="tag">⭐ 780</span>
-        </div>
-        <div class="item">
-            <a href="https://github.com/twostraws/Swift-Agent-Skills">Swift-Agent-Skills</a>
-            <p>A curated directory of open-source AI agent skills for Swift and Apple platform development.</p>
-            <span class="tag">⭐ 575</span>
-        </div>
-        <div class="item">
-            <a href="https://github.com/Narcooo/inkos">inkos</a>
-            <p>Multi-agent novel production system — AI agents autonomously write, audit, and revise novels with human review gates</p>
-            <span class="tag">⭐ 528</span>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>🌐 热门 AI 工具/动态</h2>
-        <div class="item">
-            <a href="https://fabrk.ai/">Fabrk.ai</a>
-            <p>Show HN: Mrs Doubtfire explains AI – Fabrk.ai build custom AI agents quickly</p>
-        </div>
-        <div class="item">
-            <a href="https://www.creativebloq.com/design/adobes-new-image-rotation-tool-is-one-of-the-most-impressive-ai-concepts-weve-seen">Adobe's New Image Rotation Tool</a>
-            <p>Adobe's new image rotation tool is one of the most impressive AI tools seen</p>
-        </div>
-        <div class="item">
-            <a href="https://alexschapiro.com/security/vulnerability/2025/12/02/filevine-api-100k">Reverse Engineering Legal AI</a>
-            <p>Reverse engineering a $1B Legal AI tool exposed 100k+ confidential files</p>
-        </div>
-        <div class="item">
-            <a href="https://www.nature.com/articles/d41586-025-00648-5">AI in Research</a>
-            <p>AI tools are spotting errors in research papers</p>
-        </div>
-        <div class="item">
-            <a href="https://mastodon.social/@bagder/115241241075258992">curl & AI</a>
-            <p>Potential issues in curl found using AI assisted tools</p>
-        </div>
+    <div class="gazette-list">
+        <a href="https://github.com/zenithClaw/ai-product-tracker/blob/main/gazettes/INSIDER_01.md" class="gazette-card">
+            <span class="date">2026-03-18</span>
+            <span class="title">🛡️ 第 01 期：多级代理效率革命与沙盒安全加固</span>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Architecture</span>
+                <span class="tag">Security</span>
+                <span class="tag">Efficiency</span>
+            </div>
+            <p class="summary">本期核心：sessions_yield 正式上线显著降低 Token 损耗；拦截 7 个高危环境变量防止沙盒逃逸；MS Teams 稳定性大幅提升。</p>
+        </a>
     </div>
 
     <footer>
-        <p style="text-align: center; color: #999; font-size: 0.8em;">Generated by 小 z 🐛 | Antigravity</p>
+        <p>Generated by <strong>小 z 🐛 (Antigravity)</strong> | <a href="https://github.com/zenithClaw/ai-product-tracker" style="color: var(--accent);">View Source on GitHub</a></p>
     </footer>
 </body>
 </html>
