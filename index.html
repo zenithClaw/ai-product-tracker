@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Insider - 追踪 AI Agent 最前沿</title>
+    <title>OpenClaw Insider - 追踪 AI Agent 进化</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -12,106 +12,144 @@
             --text: #f8fafc;
             --text-muted: #94a3b8;
             --accent: #38bdf8;
+            --success: #10b981;
+            --warning: #f59e0b;
         }
         body { 
             font-family: -apple-system, system-ui, sans-serif; 
             line-height: 1.6; 
-            max-width: 900px; 
+            max-width: 1000px; 
             margin: 0 auto; 
             padding: 40px 20px; 
             background-color: var(--bg); 
             color: var(--text);
         }
-        h1 { font-size: 2.5em; text-align: center; margin-bottom: 10px; color: var(--accent); }
-        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
+        header { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #334155; padding-bottom: 40px; }
+        h1 { font-size: 3em; margin-bottom: 10px; color: var(--accent); }
+        .subtitle { font-size: 1.2em; color: var(--text-muted); }
+        .nav { margin-top: 20px; }
+        .nav a { margin: 0 15px; color: var(--text); text-decoration: none; font-weight: 500; }
+        .nav a:hover { color: var(--accent); }
+
+        .version-block { margin-bottom: 80px; }
+        .version-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 30px; 
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+        .version-tag { background: var(--primary); color: white; padding: 4px 12px; border-radius: 6px; font-family: monospace; font-size: 1.2em; }
+        .version-date { color: var(--text-muted); font-size: 1.1em; }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 24px; }
         .card { 
             background: var(--card-bg); 
             border-radius: 12px; 
             padding: 24px; 
-            margin-bottom: 24px; 
             border: 1px solid #334155;
-            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
-        .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+        .card:hover { border-color: var(--accent); }
         .tag { 
             display: inline-block; 
-            padding: 4px 12px; 
+            padding: 2px 10px; 
             border-radius: 999px; 
             font-size: 0.75em; 
-            font-weight: 600;
-            background: #1e40af; 
-            color: #bfdbfe; 
+            font-weight: 700;
+            background: rgba(56, 189, 248, 0.1); 
+            color: var(--accent); 
             margin-bottom: 12px;
-            text-transform: uppercase;
+            width: fit-content;
         }
-        .version { font-family: monospace; color: var(--accent); }
-        h2 { margin-top: 0; font-size: 1.5em; }
-        p { color: #cbd5e1; }
-        .actions { 
-            margin-top: 16px; 
-            padding-top: 16px; 
-            border-top: 1px solid #334155;
-            font-size: 0.9em;
-            color: var(--accent);
-        }
-        .footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.8em; }
+        .card h3 { margin: 0 0 12px 0; font-size: 1.3em; }
+        .card p { color: #cbd5e1; font-size: 0.95em; flex-grow: 1; }
+        .card .tech { font-family: monospace; font-size: 0.85em; color: var(--text-muted); margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; }
+        .card .action { margin-top: 15px; font-weight: 700; color: var(--success); display: flex; align-items: center; gap: 8px; }
+
+        footer { text-align: center; margin-top: 100px; padding-top: 40px; border-top: 1px solid #334155; color: var(--text-muted); }
         a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .nav { text-align: center; margin-bottom: 30px; }
-        .nav a { margin: 0 15px; font-weight: 500; }
+        
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <h1>🛡️ OpenClaw Insider</h1>
-    <p class="subtitle">让想跟进 OpenClaw 更新的人，比开发者更懂 Agent 进化。</p>
+    <header>
+        <h1>🚀 OpenClaw Insider</h1>
+        <p class="subtitle">深度追踪 OpenClaw 合并日志，将硬核更新转化为 <strong>Actionable Intelligence</strong>。</p>
+        <div class="nav">
+            <a href="https://github.com/zenithClaw/ai-product-tracker">GitHub 仓库</a>
+            <a href="https://github.com/openclaw/openclaw/releases">官方 Releases</a>
+        </div>
+    </header>
 
-    <div class="nav">
-        <a href="#">最新情报</a>
-        <a href="https://github.com/zenithClaw/ai-product-tracker/tree/main/gazettes">往期存档 (Markdown)</a>
-        <a href="https://github.com/openclaw/openclaw">官方仓库</a>
-    </div>
-
-    <div class="card">
-        <span class="tag">Architecture</span>
-        <h2>多级代理效率革命 <span class="version">[2026.03.18]</span></h2>
-        <p><strong>价值：</strong> 引入 <code>sessions_yield</code> 逻辑。主代理在调用子代理后可“挂起”等待，不再通过轮询浪费 Tokens。</p>
-        <p>以前子代理干活，主代理得一直在后台轮询，费钱又容易死锁。现在效率提升 30%。</p>
-        <div class="actions">
-            ⚡ <strong>Action:</strong> 检查 Skill 中的 sessions_spawn 逻辑，改用异步事件触发。
+    <div class="version-block">
+        <div class="version-header">
+            <span class="version-tag">v2026.03.18</span>
+            <span class="version-date">Today's Merged PRs</span>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <span class="tag">Efficiency</span>
+                <h3>多级代理“挂起”机制正式实装</h3>
+                <p><strong>Impact:</strong> 主代理调用子代理后不再需要轮询，而是通过事件自动唤醒。这一变动将显著降低长任务中的 Token 损耗。</p>
+                <div class="tech">Merged PR: feat(agents): add sessions_yield logic for asynchronous subagent calls</div>
+                <div class="action">✅ <strong>Action:</strong> 升级后改用 sessions_yield，Token 节省约 30%。</div>
+            </div>
+            <div class="card">
+                <span class="tag">Security</span>
+                <h3>沙盒加固：屏蔽 7 个高危注入点</h3>
+                <p><strong>Impact:</strong> 拦截了包括 GLIBC_TUNABLES 在内的环境变量注入。防止恶意代码通过构建工具配置泄露宿主机权限。</p>
+                <div class="tech">Merged PR: fix(security): block build-tool and glibc env injection vectors</div>
+                <div class="action">🔒 <strong>Action:</strong> 必选更新。提升本地执行环境的安全性。</div>
+            </div>
+            <div class="card">
+                <span class="tag">Stability</span>
+                <h3>MSTeams 端口冲突修复</h3>
+                <p><strong>Impact:</strong> 引入单例守护，彻底解决了 MSTeams 插件在重启或部署时导致的 EADDRINUSE 崩溃死循环。</p>
+                <div class="tech">Merged PR: fix(msteams): prevent EADDRINUSE crash on duplicate start</div>
+                <div class="action">🛠️ <strong>Action:</strong> MSTeams 用户建议立即拉取 Master 分支。</div>
+            </div>
+            <div class="card">
+                <span class="tag">UI/DX</span>
+                <h3>Dashboard 性能革命：停止“渲染风暴”</h3>
+                <p><strong>Impact:</strong> 优化了实时工具调用时的历史记录重载逻辑。在大规模任务运行时，UI 不再卡顿或频繁重载。</p>
+                <div class="tech">Merged PR: fix(ui): stop dashboard chat history reload storm</div>
+                <div class="action">🚀 <strong>Action:</strong> 体验更流畅的 Web 控制台。</div>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <span class="tag">Security</span>
-        <h2>阻断隐性沙盒逃逸 <span class="version">[2026.03.17]</span></h2>
-        <p><strong>价值：</strong> 拦截了包括 <code>GLIBC_TUNABLES</code>、<code>MAVEN_OPTS</code> 等在内的 7 个高危环境变量注入向量。</p>
-        <p>防御黑客（或恶意代码）通过隐秘系统变量绕过沙盒攻击宿主机。</p>
-        <div class="actions">
-            🔒 <strong>Action:</strong> 确保升级到最新内核，保障本地执行环境安全。
+    <div class="version-block">
+        <div class="version-header">
+            <span class="version-tag">v2026.03.13-1</span>
+            <span class="version-date">Recovery Release</span>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <span class="tag">Core</span>
+                <h3>Token 计费修正与 Compaction 安全</h3>
+                <p><strong>Impact:</strong> 修复了上下文压缩后可能导致的 undefined totalTokens 错误。计费和 Token 统计更准确。</p>
+                <div class="tech">PRs: #28347, #29743 (Merged)</div>
+                <div class="action">📊 <strong>Action:</strong> 确保版本在 v2026.03.13-1 以上。</div>
+            </div>
+            <div class="card">
+                <span class="tag">Integration</span>
+                <h3>飞书/Telegram 媒体处理增强</h3>
+                <p><strong>Impact:</strong> 飞书上传现在能正确保留非 ASCII 文件名；Telegram 增加了 IPv4 回退机制，下载媒体更稳定。</p>
+                <div class="tech">PRs: #34262, #45327 (Merged)</div>
+                <div class="action">💬 <strong>Action:</strong> 解决文件传输过程中的隐性 Bug。</div>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <span class="tag">Stability</span>
-        <h2>MSTeams 重启地狱终结 <span class="version">[2026.03.18]</span></h2>
-        <p><strong>价值：</strong> 引入单例守护（Singleton Guard），解决了 <code>EADDRINUSE</code> 导致的无限崩溃重启循环。</p>
-        <div class="actions">
-            🛠️ <strong>Action:</strong> 使用 MS Teams 频道的用户请务必同步 Master 分支。
-        </div>
-    </div>
-
-    <div class="card">
-        <span class="tag">Extension</span>
-        <h2>飞书精准回复机制 <span class="version">[2026.03.18]</span></h2>
-        <p><strong>价值：</strong> 修正了多消息并发时的乱序回复问题，回复强制溯源当前会话 ID。</p>
-        <div class="actions">
-            💬 <strong>Action:</strong> 飞书 Bot 用户可获得更稳定的对话体验。
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>Generated with 🐛 by Mycelium Swarm | Powered by Antigravity</p>
+    <footer>
+        <p>Generated by <strong>小 z 🐛 (Antigravity)</strong> | Powered by Mycelium Swarm</p>
         <p>© 2026 ZenithClaw Labs</p>
-    </div>
+    </footer>
 </body>
 </html>
