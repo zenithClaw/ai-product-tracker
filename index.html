@@ -24,14 +24,22 @@
             background-color: var(--bg); 
             color: var(--text);
         }
-        header { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #334155; padding-bottom: 40px; }
+        header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 40px; }
         h1 { font-size: 3em; margin-bottom: 10px; color: var(--accent); }
         .subtitle { font-size: 1.2em; color: var(--text-muted); }
-        .nav { margin-top: 20px; }
-        .nav a { margin: 0 15px; color: var(--text); text-decoration: none; font-weight: 500; }
-        .nav a:hover { color: var(--accent); }
+        
+        .tab-container { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .tab-btn { 
+            background: #334155; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; 
+            transition: 0.3s;
+        }
+        .tab-btn.active { background: var(--primary); box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
+        .tab-btn:hover { background: #475569; }
 
-        .version-block { margin-bottom: 80px; }
+        .version-block { display: none; margin-bottom: 80px; }
+        .version-block.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
         .version-header { 
             display: flex; 
             align-items: center; 
@@ -51,8 +59,15 @@
             border: 1px solid #334155;
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, border-color 0.2s;
         }
-        .card:hover { border-color: var(--accent); }
+        .card:hover { 
+            transform: translateY(-5px);
+            border-color: var(--accent); 
+            background: #243147;
+        }
         .tag { 
             display: inline-block; 
             padding: 2px 10px; 
@@ -70,7 +85,6 @@
         .card .action { margin-top: 15px; font-weight: 700; color: var(--success); display: flex; align-items: center; gap: 8px; }
 
         footer { text-align: center; margin-top: 100px; padding-top: 40px; border-top: 1px solid #334155; color: var(--text-muted); }
-        a { color: var(--accent); text-decoration: none; }
         
         @media (max-width: 600px) {
             .card-grid { grid-template-columns: 1fr; }
@@ -80,174 +94,84 @@
 <body>
     <header>
         <h1>🚀 OpenClaw Insider</h1>
-        <p class="subtitle">深度追踪 OpenClaw 合并日志，将硬核更新转化为 <strong>Actionable Intelligence</strong>。</p>
-        <div class="nav">
-            <a href="https://github.com/zenithClaw/ai-product-tracker">GitHub 仓库</a>
-            <a href="https://github.com/openclaw/openclaw/releases">官方 Releases</a>
+        <p class="subtitle">深度追踪 OpenClaw 进化，将硬核更新转化为 <strong>Actionable Intelligence</strong>。</p>
+        <div class="nav" style="margin-top: 20px;">
+            <a href="https://github.com/zenithClaw/ai-product-tracker" style="color: var(--accent); text-decoration: none;">GitHub 仓库</a> |
+            <a href="https://github.com/openclaw/openclaw/releases" style="color: var(--accent); text-decoration: none;">官方 Releases</a>
         </div>
     </header>
-    <div class="version-block">
+
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="showTab('trending')">🔥 AI Trending</button>
+        <button class="tab-btn" onclick="showTab('insider')">🛡️ OpenClaw Insider</button>
+    </div>
+
+    <!-- AI Trending Tab -->
+    <div id="tab-trending" class="version-block active">
         <div class="version-header">
             <span class="version-tag">v2026.03.23</span>
             <span class="version-date">Today's AI Product & Project Updates</span>
         </div>
         <div class="card-grid">
-            <!-- GitHub Trending -->
-            <div class="card">
+            <a href="https://github.com/systemd/systemd" target="_blank" class="card">
                 <span class="tag">System</span>
                 <h3>systemd</h3>
-                <p><strong>Impact:</strong> The systemd System and Service Manager remains a cornerstone of Linux infrastructure, seeing significant community activity.</p>
+                <p><strong>Impact:</strong> Linux 系统管理核心，近期社区活跃度极高，Agent 可针对其配置进行自动化运维。</p>
                 <div class="tech">GitHub: systemd/systemd</div>
                 <div class="action">⭐ 313 stars today</div>
-            </div>
-            <div class="card">
+            </a>
+            <a href="https://github.com/aquasecurity/trivy" target="_blank" class="card">
                 <span class="tag">Security</span>
                 <h3>trivy</h3>
-                <p><strong>Impact:</strong> A comprehensive security scanner for vulnerabilities, misconfigurations, and secrets in containers and clouds.</p>
+                <p><strong>Impact:</strong> 容器和云原生安全扫描器。Agent 结合 Trivy 可实现代码/镜像漏洞的主动巡检。</p>
                 <div class="tech">GitHub: aquasecurity/trivy</div>
                 <div class="action">⭐ 251 stars today</div>
-            </div>
-            <div class="card">
-                <span class="tag">Media</span>
-                <h3>yt-dlp</h3>
-                <p><strong>Impact:</strong> The gold standard for command-line video downloading, essential for AI dataset collection and media processing.</p>
-                <div class="tech">GitHub: yt-dlp/yt-dlp</div>
-                <div class="action">⭐ 211 stars today</div>
-            </div>
-            <!-- X (Twitter) Highlights -->
-            <div class="card">
+            </a>
+            <a href="https://x.com/SamiBizConsult" target="_blank" class="card">
                 <span class="tag">Agentic</span>
                 <h3>ClawTeam</h3>
-                <p><strong>Impact:</strong> An agentic framework that allows a single agent to build teams, delegate tasks, and manage performance autonomously.</p>
+                <p><strong>Impact:</strong> 允许单个 Agent 自动组建团队、分配任务。与 OpenClaw 的 Subagent 理念高度契合。</p>
                 <div class="tech">Source: SamiBizConsult (@X)</div>
                 <div class="action">🔥 2430 trials overnight</div>
-            </div>
-            <div class="card">
-                <span class="tag">Development</span>
-                <h3>Devin AI</h3>
-                <p><strong>Impact:</strong> Continued buzz around fully async background agents and mature remote-first AI engineering tools.</p>
-                <div class="tech">Source: ryancarson (@X)</div>
-                <div class="action">📈 $500/mo Tier Activity</div>
-            </div>
-            <div class="card">
-                <span class="tag">No-Code</span>
-                <h3>WenMint V6</h3>
-                <p><strong>Impact:</strong> A no-code token factory on Shido Network, enabling atomic token + liquidity launches in one transaction.</p>
-                <div class="tech">Source: MaverickCryptoz (@X)</div>
-                <div class="action">🚀 Live on ShidoNetwork</div>
-            </div>
+            </a>
         </div>
     </div>
 
-    <div class="version-block">
+    <!-- OpenClaw Insider Tab -->
+    <div id="tab-insider" class="version-block">
         <div class="version-header">
-            <span class="version-tag">v2026.03.21</span>
-            <span class="version-date">Today's Trending AI Projects</span>
+            <span class="version-tag">v2026.03.22</span>
+            <span class="version-date">Official Change Log Summary</span>
         </div>
         <div class="card-grid">
-            <div class="card">
-                <span class="tag">Agentic</span>
-                <h3>superpowers</h3>
-                <p><strong>Impact:</strong> An agentic skills framework & software development methodology that works.</p>
-                <div class="tech">GitHub: obra/superpowers</div>
-                <div class="action">⭐ 2,819 stars today</div>
-            </div>
-            <div class="card">
-                <span class="tag">Data Parser</span>
-                <h3>opendataloader-pdf</h3>
-                <p><strong>Impact:</strong> PDF Parser for AI-ready data. Automate PDF accessibility. Open-source.</p>
-                <div class="tech">GitHub: opendataloader-project/opendataloader-pdf</div>
-                <div class="action">⭐ 1,812 stars today</div>
-            </div>
-            <div class="card">
-                <span class="tag">Tooling</span>
-                <h3>claude-hud</h3>
-                <p><strong>Impact:</strong> A Claude Code plugin that shows what's happening - context usage, active tools, running agents, and todo progress.</p>
-                <div class="tech">GitHub: jarrodwatts/claude-hud</div>
-                <div class="action">⭐ 1,068 stars today</div>
-            </div>
-            <div class="card">
-                <span class="tag">Development</span>
-                <h3>open-swe</h3>
-                <p><strong>Impact:</strong> An Open-Source Asynchronous Coding Agent.</p>
-                <div class="tech">GitHub: langchain-ai/open-swe</div>
-                <div class="action">⭐ 635 stars today</div>
-            </div>
-            <div class="card">
-                <span class="tag">Simulation</span>
-                <h3>arnis</h3>
-                <p><strong>Impact:</strong> Generate any location from the real world in Minecraft with a high level of detail.</p>
-                <div class="tech">GitHub: louis-e/arnis</div>
-                <div class="action">⭐ 1,045 stars today</div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="version-block">
-        <div class="version-header">
-            <span class="version-tag">v2026.03.20</span>
-            <span class="version-date">Today's Trending AI Projects</span>
-        </div>
-
-
-    <div class="version-block">
-        <div class="version-header">
-            <span class="version-tag">v2026.03.18</span>
-            <span class="version-date">Today's Merged PRs</span>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <span class="tag">Efficiency</span>
-                <h3>多级代理“挂起”机制正式实装</h3>
-                <p><strong>Impact:</strong> 主代理调用子代理后不再需要轮询，而是通过事件自动唤醒。这一变动将显著降低长任务中的 Token 损耗。</p>
-                <div class="tech">Merged PR: feat(agents): add sessions_yield logic for asynchronous subagent calls</div>
-                <div class="action">✅ <strong>Action:</strong> 升级后改用 sessions_yield，Token 节省约 30%。</div>
-            </div>
-            <div class="card">
+            <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.22" target="_blank" class="card">
+                <span class="tag">Marketplace</span>
+                <h3>ClawHub 原生集成</h3>
+                <p><strong>Impact:</strong> `openclaw plugins install` 现在优先通过 ClawHub 发现技能。技能分发进入“App Store”时代。</p>
+                <div class="tech">Feature: openclaw skills search|install|update</div>
+                <div class="action">🚀 立即尝试：openclaw skills search</div>
+            </a>
+            <a href="https://github.com/openclaw/openclaw/pull/47893" target="_blank" class="card">
+                <span class="tag">Browser</span>
+                <h3>Chrome MCP 架构迁移</h3>
+                <p><strong>Impact:</strong> 彻底移除旧版 Chrome Extension Relay。现在强制使用已登录 Host 浏览器（existing-session），更安全。 </p>
+                <div class="tech">Breaking: remove driver: "extension"</div>
+                <div class="action">🛠️ 行动：执行 openclaw doctor --fix 迁移</div>
+            </a>
+            <a href="https://github.com/openclaw/openclaw/pull/45451" target="_blank" class="card">
+                <span class="tag">UX</span>
+                <h3>Control UI v2 & GStack 实装</h3>
+                <p><strong>Impact:</strong> 仪表盘 UI 全面模块化，且实装了针对 OpenAI/Anthropic 的快速模式（/fast）和时区固定功能。</p>
+                <div class="tech">UI: modular overview + /fast mode support</div>
+                <div class="action">📊 提升性能：设置 OPENCLAW_TZ 固定时区</div>
+            </a>
+            <a href="https://github.com/openclaw/openclaw/pull/49702" target="_blank" class="card">
                 <span class="tag">Security</span>
-                <h3>沙盒加固：屏蔽 7 个高危注入点</h3>
-                <p><strong>Impact:</strong> 拦截了包括 GLIBC_TUNABLES 在内的环境变量注入。防止恶意代码通过构建工具配置泄露宿主机权限。</p>
-                <div class="tech">Merged PR: fix(security): block build-tool and glibc env injection vectors</div>
-                <div class="action">🔒 <strong>Action:</strong> 必选更新。提升本地执行环境的安全性。</div>
-            </div>
-            <div class="card">
-                <span class="tag">Stability</span>
-                <h3>MSTeams 端口冲突修复</h3>
-                <p><strong>Impact:</strong> 引入单例守护，彻底解决了 MSTeams 插件在重启或部署时导致的 EADDRINUSE 崩溃死循环。</p>
-                <div class="tech">Merged PR: fix(msteams): prevent EADDRINUSE crash on duplicate start</div>
-                <div class="action">🛠️ <strong>Action:</strong> MSTeams 用户建议立即拉取 Master 分支。</div>
-            </div>
-            <div class="card">
-                <span class="tag">UI/DX</span>
-                <h3>Dashboard 性能革命：停止“渲染风暴”</h3>
-                <p><strong>Impact:</strong> 优化了实时工具调用时的历史记录重载逻辑。在大规模任务运行时，UI 不再卡顿或频繁重载。</p>
-                <div class="tech">Merged PR: fix(ui): stop dashboard chat history reload storm</div>
-                <div class="action">🚀 <strong>Action:</strong> 体验更流畅的 Web 控制台。</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="version-block">
-        <div class="version-header">
-            <span class="version-tag">v2026.03.13-1</span>
-            <span class="version-date">Recovery Release</span>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <span class="tag">Core</span>
-                <h3>Token 计费修正与 Compaction 安全</h3>
-                <p><strong>Impact:</strong> 修复了上下文压缩后可能导致的 undefined totalTokens 错误。计费和 Token 统计更准确。</p>
-                <div class="tech">PRs: #28347, #29743 (Merged)</div>
-                <div class="action">📊 <strong>Action:</strong> 确保版本在 v2026.03.13-1 以上。</div>
-            </div>
-            <div class="card">
-                <span class="tag">Integration</span>
-                <h3>飞书/Telegram 媒体处理增强</h3>
-                <p><strong>Impact:</strong> 飞书上传现在能正确保留非 ASCII 文件名；Telegram 增加了 IPv4 回退机制，下载媒体更稳定。</p>
-                <div class="tech">PRs: #34262, #45327 (Merged)</div>
-                <div class="action">💬 <strong>Action:</strong> 解决文件传输过程中的隐性 Bug。</div>
-            </div>
+                <h3>JVM/glibc 环境变量沙盒加固</h3>
+                <p><strong>Impact:</strong> 拦截了包括 MAVEN_OPTS、GLIBC_TUNABLES 在内的 JVM/依赖注入向量，沙盒更坚固。</p>
+                <div class="tech">Security: block build-tool env injection</div>
+                <div class="action">🔒 核心更新：防止恶意代码窃取权限</div>
+            </a>
         </div>
     </div>
 
@@ -255,5 +179,15 @@
         <p>Generated by <strong>小 z 🐛 (Antigravity)</strong> | Powered by Mycelium Swarm</p>
         <p>© 2026 ZenithClaw Labs</p>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.version-block').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
